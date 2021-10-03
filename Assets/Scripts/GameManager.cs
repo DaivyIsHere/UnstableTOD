@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,12 +13,18 @@ public class GameManager : MonoBehaviour
             instance = this;
     }
 
+    public Text sanityDisplay;
     public int maxSanity = 3;
     public int playerSanity = 3;
 
     void Start() 
     {
         playerSanity = maxSanity;
+    }
+
+    void Update() 
+    {    
+        sanityDisplay.text = "Sanity = "+playerSanity;
     }
 
     public void PlayerTakeDamage()

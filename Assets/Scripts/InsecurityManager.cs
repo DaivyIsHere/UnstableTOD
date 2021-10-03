@@ -135,6 +135,7 @@ public class InsecurityManager : MonoBehaviour
 
     private void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Alpha1))
             SpawnTile(CardType.none);
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -145,6 +146,7 @@ public class InsecurityManager : MonoBehaviour
             StartCoroutine(MakeTileSwinging());
         if (Input.GetKeyDown(KeyCode.Alpha5))
             StartCoroutine(MakeTileShaking());
+            */
     }
 }
 
