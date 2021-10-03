@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private Animator _animator;
+    [SerializeField] private GameObject _image;
+
     [SerializeField] private float spd;
     private Rigidbody rb;
 
@@ -12,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float _DamageCD = 0;
 
 
-    void Awake() 
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
@@ -20,12 +23,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        if(!CanTakeDamage())
+        if (!CanTakeDamage())
         {
             _DamageCD -= Time.deltaTime;
         }
@@ -33,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(slippery)
+        if (slippery)
         {
             SlipperyMovement();
         }
@@ -43,12 +46,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other) 
+    void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "bullet")
+        if (other.gameObject.tag == "bullet")
         {
-            if(CanTakeDamage())
-            TakeDamage();
+            if (CanTakeDamage())
+                TakeDamage();
         }
     }
 
@@ -68,7 +71,14 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
 
-        rb.velocity = new Vector3(x* spd, rb.velocity.y, z*spd);
+        rb.velocity = new Vector3(x * spd, rb.velocity.y, z * spd);
+
+        if (x < 0)
+            _image.transform.localScale = new Vector3(-5, 5, 5);
+        else if (x > 0)
+            _image.transform.localScale = new Vector3(5, 5, 5);
+
+        _animator.SetFloat("Speed", Mathf.Abs(x) + Mathf.Abs(z));
     }
 
     void SlipperyMovement()
@@ -77,7 +87,14 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         //print(rb.velocity.magnitude);
-        if(rb.velocity.magnitude < spd*0.8f)
-            rb.AddForce(new Vector3(x* spd, 0, z*spd));
+        if (rb.velocity.magnitude < spd * 0.8f)
+            rb.AddForce(new Vector3(x * spd, 0, z * spd));
+
+        if (x < 0)
+            _image.transform.localScale = new Vector3(-5, 5, 5);
+        else if (x > 0)
+            _image.transform.localScale = new Vector3(5, 5, 5);
+
+        _animator.SetFloat("Speed", Mathf.Abs(x) + Mathf.Abs(z));
     }
 }
