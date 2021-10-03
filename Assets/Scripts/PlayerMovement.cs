@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
 
     public bool slippery = false;
+    public float maxDamageCD = 1.5f;
+    public float _DamageCD = 0;
+
 
     void Awake() 
     {
@@ -18,6 +21,14 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         
+    }
+
+    void Update()
+    {
+        if(!CanTakeDamage())
+        {
+            _DamageCD -= Time.deltaTime;
+        }
     }
 
     void FixedUpdate()
@@ -32,10 +43,30 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other) 
+    {
+        if(other.gameObject.tag == "bullet")
+        {
+            if(CanTakeDamage())
+            TakeDamage();
+        }
+    }
+
+    bool CanTakeDamage()
+    {
+        return _DamageCD <= 0;
+    }
+
+    public void TakeDamage()
+    {
+        _DamageCD = maxDamageCD;
+        GameManager.instance.PlayerTakeDamage();
+    }
+
     void StandardMovement()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
 
         rb.velocity = new Vector3(x* spd, rb.velocity.y, z*spd);
     }
@@ -46,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         //print(rb.velocity.magnitude);
-        if(rb.velocity.magnitude < spd)
+        if(rb.velocity.magnitude < spd*0.8f)
             rb.AddForce(new Vector3(x* spd, 0, z*spd));
     }
 }

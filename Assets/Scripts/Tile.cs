@@ -9,7 +9,7 @@ public class Tile : MonoBehaviour
     [Header("Parameters")]
     [SerializeField] private float _dropSpeed = 1f;
     [SerializeField] private float _moveSpeed = 0.25f;
-    [SerializeField] private float _boundary = 3f;
+    [SerializeField] private float _boundary = 2f;
 
     [Space]
     public Rigidbody TileRB;
@@ -36,9 +36,9 @@ public class Tile : MonoBehaviour
     {
         if (IsControlling)
         {
-            if (other.transform.parent.GetComponent<Tile>())
+            if (other.transform.GetComponent<Tile>())
             {
-                if (!other.transform.parent.GetComponent<Tile>().IsControlling)
+                if (!other.transform.GetComponent<Tile>().IsControlling)
                 {
                     IsControlling = false;
                     GetComponent<Rigidbody>().useGravity = true;
@@ -54,8 +54,9 @@ public class Tile : MonoBehaviour
 
     private void Dropping()
     {
-        var y = -_dropSpeed * Time.deltaTime;
-        transform.Translate(new Vector3(0, y, 0), Space.World);
+        GetComponent<Rigidbody>().velocity = new Vector3(0, -_dropSpeed, 0);
+        //var y = -_dropSpeed * Time.deltaTime;
+        //transform.Translate(new Vector3(0, y, 0), Space.World);
     }
 
     private void CheckBoundary()
