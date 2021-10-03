@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement instance;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private GameObject _image;
 
     [SerializeField] private float spd;
     private Rigidbody rb;
@@ -73,6 +75,13 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxisRaw("Vertical");
 
         rb.velocity = new Vector3(x * spd, rb.velocity.y, z * spd);
+
+        if (x < 0)
+            _image.transform.localScale = new Vector3(-5, 5, 5);
+        else if (x > 0)
+            _image.transform.localScale = new Vector3(5, 5, 5);
+
+        _animator.SetFloat("Speed", Mathf.Abs(x) + Mathf.Abs(z));
     }
 
     void SlipperyMovement()
@@ -83,5 +92,12 @@ public class PlayerMovement : MonoBehaviour
         //print(rb.velocity.magnitude);
         if (rb.velocity.magnitude < spd * 0.8f)
             rb.AddForce(new Vector3(x * spd, 0, z * spd));
+
+        if (x < 0)
+            _image.transform.localScale = new Vector3(-5, 5, 5);
+        else if (x > 0)
+            _image.transform.localScale = new Vector3(5, 5, 5);
+
+        _animator.SetFloat("Speed", Mathf.Abs(x) + Mathf.Abs(z));
     }
 }

@@ -83,8 +83,6 @@ public class InsecurityManager : MonoBehaviour
 
     public void MakeTileSlippery()
     {
-        var tiles = new HashSet<TileCollider>();
-
         for (float i = -3f; i <= 3f; i += 0.25f)
         {
             if (Physics.Raycast(new Vector3(-50 + i, 20, 0), -transform.up, out var hit))
