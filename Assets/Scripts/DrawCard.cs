@@ -129,6 +129,9 @@ public class DrawCard : MonoBehaviour
     public void RespawnCard()
     {
         if(newCard == null)
+        {
             newCard = Instantiate(CardManager.instance.GetRandomCard(), SpawnPosition.position, Quaternion.identity, transform.parent);
+            print("Draw : "+newCard.GetComponent<Card>().cardType);
+        }
     }
 }
