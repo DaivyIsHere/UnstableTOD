@@ -8,7 +8,13 @@ public class Card : MonoBehaviour
 
     //3d texture
     public CardType cardType;
+    public CardUtilityType cardUtilityType;
+    public TileType tileType;
     public Sprite sprite;
+
+    [Range(0,1)]
+    public float possibilityMod = 1;
+    public int minDrawCount = 0;
 
     private void Awake() 
     {
@@ -22,7 +28,7 @@ public class Card : MonoBehaviour
 
     public virtual void ActivateTruth()
     {
-        InsecurityManager.instance.SpawnTile(cardType);
+        
     }
 
     public virtual void ActivateDare()
@@ -38,7 +44,6 @@ public enum CardType
     none,
     LoveAndCare,
     Oblivion,
-    Observation,
     IceBucket,
     CarWashMachine,
     SlapYourself,
@@ -50,4 +55,16 @@ public enum CardType
     NakedInTheStorm,
     WhereIsMyUmbrella,
     UndergroundDanceParty,
+    BuyOneGetOneFree,
+    OhBabyATriple,
+    FourTimesHappiness
+}
+
+public enum CardUtilityType
+{
+    Bullet,
+    Trap,
+    Weather,
+    Utility,
+    Multiple,
 }

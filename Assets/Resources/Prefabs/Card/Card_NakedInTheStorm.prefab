@@ -110,8 +110,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showText: {fileID: 0}
-  cardType: 12
+  cardType: 11
+  cardUtilityType: 2
+  tileType: 0
   sprite: {fileID: 0}
+  possibilityMod: 0.5
+  minDrawCount: 10
 --- !u!1 &9071148545521048665
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,17 +18,17 @@ public class Card_CarWash : Card
 
     public IEnumerator Dare()
     {
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 6; i++)
         {
-            RealityManager.instance.NewProjectile(Vector3.zero, 315+i*10, ProjectileSpd);
-            RealityManager.instance.NewProjectile(Vector3.zero, 135+i*10, ProjectileSpd);
+            RealityManager.instance.NewProjectile(Vector3.zero, 315+i*15, ProjectileSpd);
+            RealityManager.instance.NewProjectile(Vector3.zero, 135+i*15, ProjectileSpd);
             yield return new WaitForSeconds(0.1f);
         }
         yield return new WaitForSecondsRealtime(1f);
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 6; i++)
         {
-            RealityManager.instance.NewProjectile(Vector3.zero, 45+i*10, ProjectileSpd);
-            RealityManager.instance.NewProjectile(Vector3.zero, 225+i*10, ProjectileSpd);
+            RealityManager.instance.NewProjectile(Vector3.zero, 45+i*15, ProjectileSpd);
+            RealityManager.instance.NewProjectile(Vector3.zero, 225+i*15, ProjectileSpd);
             yield return new WaitForSeconds(0.1f);
         }
         

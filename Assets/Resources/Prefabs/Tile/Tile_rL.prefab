@@ -180,7 +180,7 @@ MonoBehaviour:
   - {fileID: 2510338564466556942}
   - {fileID: 2049358134698728726}
   - {fileID: 151713338229141511}
-  _dropSpeed: 3
+  _dropSpeed: 2
   _moveSpeed: 0.25
   _boundary: 2
   TileRB: {fileID: 5441893763579306784}

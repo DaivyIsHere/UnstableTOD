@@ -205,5 +205,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showText: {fileID: 0}
-  cardType: 14
+  cardType: 13
+  cardUtilityType: 2
+  tileType: 0
   sprite: {fileID: 0}
+  possibilityMod: 0.5
+  minDrawCount: 15

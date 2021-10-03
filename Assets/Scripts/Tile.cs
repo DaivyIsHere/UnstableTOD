@@ -92,7 +92,7 @@ public class Tile : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + 90);
+            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z - 90);
         }
     }
 

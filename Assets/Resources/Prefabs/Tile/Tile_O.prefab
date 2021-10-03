@@ -402,7 +402,7 @@ MonoBehaviour:
   - {fileID: 6563730880269601774}
   - {fileID: 4795501466754748127}
   - {fileID: 5066488787743149993}
-  _dropSpeed: 3
+  _dropSpeed: 2
   _moveSpeed: 0.25
   _boundary: 2
   TileRB: {fileID: 2665925009987969176}

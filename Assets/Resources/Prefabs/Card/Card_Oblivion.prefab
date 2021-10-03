@@ -206,4 +206,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showText: {fileID: 0}
   cardType: 2
+  cardUtilityType: 3
+  tileType: 0
   sprite: {fileID: 0}
+  possibilityMod: 0.3
+  minDrawCount: 10
