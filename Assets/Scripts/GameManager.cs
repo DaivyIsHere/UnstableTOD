@@ -12,6 +12,28 @@ public class GameManager : MonoBehaviour
             instance = this;
     }
 
-    public int PlayerSanity = 3;
+    public int maxSanity = 3;
+    public int playerSanity = 3;
+
+    void Start() 
+    {
+        playerSanity = maxSanity;
+    }
+
+    public void PlayerTakeDamage()
+    {
+        if(playerSanity > 0)
+        {
+            playerSanity --;
+        }
+    }
+
+    public void PlayerAddSanity()
+    {
+        if(playerSanity < maxSanity)
+        {
+            playerSanity ++;
+        }
+    }
     
 }

@@ -17,13 +17,12 @@ public class Card : MonoBehaviour
 
     public virtual void ActivateTruth()
     {
-        print("Truth!");
         InsecurityManager.instance.SpawnTile(cardType);
     }
 
     public virtual void ActivateDare()
     {
-        print("Dare!");
+        
     }
 
 

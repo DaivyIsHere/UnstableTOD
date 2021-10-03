@@ -7,7 +7,6 @@ public class DrawCard : MonoBehaviour
     public Camera realityCam;
     public bool IsHoldingCard = false;
     public float CardHoldY = 3f;
-    public GameObject cardPref;
     public Transform SpawnPosition;
     public GameObject newCard;
     public GameObject cardHolding;
@@ -111,11 +110,13 @@ public class DrawCard : MonoBehaviour
 
     public void ApplyTruthCard()
     {
+        print("Truth : "+cardHolding.GetComponent<Card>().cardType);
         cardHolding.GetComponent<Card>().ActivateTruth();
     }
 
     public void ApplyDareCard()
     {
+        print("Dare : "+cardHolding.GetComponent<Card>().cardType);
         cardHolding.GetComponent<Card>().ActivateDare();
     }
 
@@ -128,6 +129,6 @@ public class DrawCard : MonoBehaviour
     public void RespawnCard()
     {
         if(newCard == null)
-            newCard = Instantiate(cardPref, SpawnPosition.position, Quaternion.identity, transform.parent);
+            newCard = Instantiate(CardManager.instance.GetRandomCard(), SpawnPosition.position, Quaternion.identity, transform.parent);
     }
 }

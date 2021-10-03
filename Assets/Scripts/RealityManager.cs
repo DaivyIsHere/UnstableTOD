@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class RealityManager : MonoBehaviour
 {
+    public static RealityManager instance;
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +23,6 @@ public class RealityManager : MonoBehaviour
     {
         
     }
+
+    
 }

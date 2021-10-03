@@ -28,7 +28,7 @@ public class InsecurityManager : MonoBehaviour
 
         TilesInInsecurity.Add(tile);
     }
-
+    
 }
 
 public enum TileType
