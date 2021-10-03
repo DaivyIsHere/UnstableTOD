@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4497108, g: 0.4997782, b: 0.5756336, a: 1}
+  m_IndirectSpecularColor: {r: 0.44971085, g: 0.49977827, b: 0.5756336, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1427,6 +1427,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719f59c81afadf94b8e8e95a79d527b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windIntensityMin: 5
+  _windIntensityMax: 10
+  _windSpeed: 5
+  _shakeIntensityMin: 0.2
+  _shakeIntensityMax: 0.4
+  _shakeSpeed: 10
+  _ground: {fileID: 611233066}
   TileContainer: {fileID: 1917031373}
   SpawnPosition: {fileID: 1441288731}
   AllTiles:
