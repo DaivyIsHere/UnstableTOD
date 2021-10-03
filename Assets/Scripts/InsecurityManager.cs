@@ -30,16 +30,29 @@ public class InsecurityManager : MonoBehaviour
     public List<Tile> TilesInInsecurity = new List<Tile>();
     public List<float> AllAngles = new List<float>() { 0, 90, 180, 270 };
 
+    public Queue<CardType> TileSpawnQueue = new Queue<CardType>();
+    public GameObject controllingTile;
+    public float spawnCD = 2f;
+
+    void Update() 
+    {
+        SpawnTileFromList();    
+    }
+
     public void SpawnTile(CardType cardType)
     {
+        TileSpawnQueue.Enqueue(cardType);
+        /*
         int tChoice = Random.Range(0, AllTiles.Count);
         int angleChoice = Random.Range(0, AllAngles.Count);
         GameObject tile = Instantiate(AllTiles[tChoice], SpawnPosition.position, Quaternion.identity, TileContainer.transform);
         tile.transform.eulerAngles = new Vector3(0, 0, AllAngles[angleChoice]);
         tile.GetComponent<Tile>().cardType = cardType;
         tile.GetComponent<Tile>().IsControlling = true;
+        controllingTile = tile;
 
         TilesInInsecurity.Add(tile.GetComponent<Tile>());
+        */
     }
 
     public Tile GetRandomTile()
@@ -133,20 +146,26 @@ public class InsecurityManager : MonoBehaviour
         _ground.transform.localPosition = new Vector3(0, originalY, 0);
     }
 
-    private void Update()
+    public void SpawnTileFromList()
     {
-        /*
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            SpawnTile(CardType.none);
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            Destroy(GetRandomTile().gameObject);
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-            Destroy(GetHighestTile().gameObject);
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-            StartCoroutine(MakeTileSwinging());
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-            StartCoroutine(MakeTileShaking());
-            */
+        if(controllingTile && !controllingTile.GetComponent<Tile>().IsControlling)
+        {
+            controllingTile = null;
+        }
+
+        if (controllingTile == null && TileSpawnQueue.Count > 0)
+        {
+            CardType type = TileSpawnQueue.Dequeue();
+            int tChoice = Random.Range(0, AllTiles.Count);
+            int angleChoice = Random.Range(0, AllAngles.Count);
+            GameObject tile = Instantiate(AllTiles[tChoice], SpawnPosition.position, Quaternion.identity, TileContainer.transform);
+            tile.transform.eulerAngles = new Vector3(0, 0, AllAngles[angleChoice]);
+            tile.GetComponent<Tile>().cardType = type;
+            tile.GetComponent<Tile>().IsControlling = true;
+            controllingTile = tile;
+
+            TilesInInsecurity.Add(tile.GetComponent<Tile>());
+        }
     }
 }
 

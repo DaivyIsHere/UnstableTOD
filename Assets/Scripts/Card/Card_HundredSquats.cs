@@ -30,15 +30,19 @@ public class Card_HundredSquats : Card
         */
         RealityManager.instance.NewTrap(new Vector3(-4,0,8), 1f, 0.5f);
         RealityManager.instance.NewTrap(new Vector3(4,0,8), 1f, 0.5f);
+        yield return new WaitForSeconds(0.5f);
         RealityManager.instance.NewTrap(new Vector3(-4,0,0), 1f, 0.5f);
         RealityManager.instance.NewTrap(new Vector3(4,0,0), 1f, 0.5f);
+        yield return new WaitForSeconds(0.5f);
         RealityManager.instance.NewTrap(new Vector3(-4,0,-8), 1f, 0.5f);
         RealityManager.instance.NewTrap(new Vector3(4,0,-8), 1f, 0.5f);
         yield return new WaitForSeconds(0.5f);
         RealityManager.instance.NewTrap(new Vector3(-8,0,4), 1f, 0.5f);
         RealityManager.instance.NewTrap(new Vector3(-8,0,-4), 1f, 0.5f);
+        yield return new WaitForSeconds(0.5f);
         RealityManager.instance.NewTrap(new Vector3(0,0,4), 1f, 0.5f);
         RealityManager.instance.NewTrap(new Vector3(0,0,-4), 1f, 0.5f);
+        yield return new WaitForSeconds(0.5f);
         RealityManager.instance.NewTrap(new Vector3(8,0,4), 1f, 0.5f);
         RealityManager.instance.NewTrap(new Vector3(8,0,-4), 1f, 0.5f);
         /*

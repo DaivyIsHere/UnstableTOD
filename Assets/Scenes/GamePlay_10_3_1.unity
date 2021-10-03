@@ -416,7 +416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &276218784
 Transform:
   m_ObjectHideFlags: 0
@@ -672,7 +672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &583364520
 Transform:
   m_ObjectHideFlags: 0
@@ -1282,9 +1282,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllCards:
   - {fileID: 8577239748212797823, guid: 22f8eccff1f20654183304c8282dd948, type: 3}
-  - {fileID: 6573354291006050088, guid: 5390194d4a096394cbb4fe70575d9ea6, type: 3}
   - {fileID: 3139337311858785354, guid: 0dff957d8bc78cd42978614286fb5b67, type: 3}
   - {fileID: 915616758071301722, guid: eed693175ec6ce84f9c15d5013d8d08e, type: 3}
+  - {fileID: 1858279753805792429, guid: ecf494793c572c945a50b5a8d17c9096, type: 3}
+  - {fileID: 6573354291006050088, guid: 5390194d4a096394cbb4fe70575d9ea6, type: 3}
+  - {fileID: 5172031253356884528, guid: 7c0f77ce3217f9d44b22f9230ccca074, type: 3}
+  - {fileID: 4581612855599618862, guid: 2d036e5282c265c419bf08fc106a3101, type: 3}
 --- !u!1 &1185535255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,6 +1779,8 @@ MonoBehaviour:
   - 90
   - 180
   - 270
+  controllingTile: {fileID: 0}
+  spawnCD: 2
 --- !u!1 &1655135895
 GameObject:
   m_ObjectHideFlags: 0

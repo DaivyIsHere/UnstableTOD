@@ -293,7 +293,7 @@ MonoBehaviour:
   - {fileID: 4156896580595037594}
   _dropSpeed: 1
   _moveSpeed: 0.25
-  _boundary: 3
+  _boundary: 2
   TileRB: {fileID: 1410757755478069661}
   tileType: 6
   cardType: 0

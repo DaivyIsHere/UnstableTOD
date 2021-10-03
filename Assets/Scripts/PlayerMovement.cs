@@ -65,8 +65,8 @@ public class PlayerMovement : MonoBehaviour
 
     void StandardMovement()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
 
         rb.velocity = new Vector3(x* spd, rb.velocity.y, z*spd);
     }
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         //print(rb.velocity.magnitude);
-        if(rb.velocity.magnitude < spd)
+        if(rb.velocity.magnitude < spd*0.8f)
             rb.AddForce(new Vector3(x* spd, 0, z*spd));
     }
 }
