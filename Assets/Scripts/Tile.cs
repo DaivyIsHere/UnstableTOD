@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField] private float _movement = 0.5f;
+    [SerializeField] private TileCollider[] _colliders = new TileCollider[4];
+
+    [Header("Parameters")]
+    [SerializeField] private float _dropSpeed = 0.5f;
+    [SerializeField] private float _moveSpeed = 0.5f;
     [SerializeField] private float _boundary = 3f;
 
+    [Space]
+    public Rigidbody TileRB;
     public TileType tileType;
     public CardType cardType;
     public bool IsControlling;
@@ -20,9 +26,16 @@ public class Tile : MonoBehaviour
         {
             //drop
             //Q E to rotate
+            Dropping();
             CheckBoundary();
             CheckInput();
         }
+    }
+
+    private void Dropping()
+    {
+        var y = -_dropSpeed * Time.deltaTime;
+        transform.Translate(new Vector3(0, y, 0), Space.World);
     }
 
     private void CheckBoundary()
@@ -46,13 +59,13 @@ public class Tile : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            var x = _crossLeft ? 0f : -_movement;
+            var x = _crossLeft ? 0f : -_moveSpeed;
             transform.Translate(new Vector3(x, 0, 0), Space.World);
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            var x = _crossRight ? 0f : _movement;
+            var x = _crossRight ? 0f : _moveSpeed;
             transform.Translate(new Vector3(x, 0, 0), Space.World);
         }
 
@@ -60,5 +73,11 @@ public class Tile : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + 90);
         }
+    }
+
+    public void CollidersUnslippery()
+    {
+        foreach (var collider in _colliders)
+            collider.BecomeUnslippery();
     }
 }
