@@ -7,8 +7,8 @@ public class Tile : MonoBehaviour
     [SerializeField] private TileCollider[] _colliders = new TileCollider[4];
 
     [Header("Parameters")]
-    [SerializeField] private float _dropSpeed = 0.5f;
-    [SerializeField] private float _moveSpeed = 0.5f;
+    [SerializeField] private float _dropSpeed = 1f;
+    [SerializeField] private float _moveSpeed = 0.25f;
     [SerializeField] private float _boundary = 3f;
 
     [Space]
@@ -29,6 +29,26 @@ public class Tile : MonoBehaviour
             Dropping();
             CheckBoundary();
             CheckInput();
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (IsControlling)
+        {
+            if (other.transform.parent.GetComponent<Tile>())
+            {
+                if (!other.transform.parent.GetComponent<Tile>().IsControlling)
+                {
+                    IsControlling = false;
+                    GetComponent<Rigidbody>().useGravity = true;
+                }
+            }
+            else if (other.gameObject.tag == "Ground")
+            {
+                IsControlling = false;
+                GetComponent<Rigidbody>().useGravity = true;
+            }
         }
     }
 

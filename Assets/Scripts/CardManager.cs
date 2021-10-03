@@ -23,4 +23,10 @@ public class CardManager : MonoBehaviour
     {
         
     }
+
+    public GameObject GetRandomCard()
+    {
+        int cChoice = Random.Range(0, AllCards.Count);
+        return AllCards[cChoice];
+    }
 }
