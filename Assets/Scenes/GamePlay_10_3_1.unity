@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 557958593}
   m_Layer: 0
   m_Name: down
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 611233068}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1197,7 +1197,7 @@ GameObject:
   - component: {fileID: 1201379740}
   m_Layer: 0
   m_Name: left
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1470,6 +1470,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719f59c81afadf94b8e8e95a79d527b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windIntensityMin: 5
+  _windIntensityMax: 10
+  _windSpeed: 5
+  _shakeIntensityMin: 0.2
+  _shakeIntensityMax: 0.4
+  _shakeSpeed: 10
+  _ground: {fileID: 611233066}
   TileContainer: {fileID: 1917031373}
   SpawnPosition: {fileID: 1441288731}
   AllTiles:
@@ -1500,7 +1507,7 @@ GameObject:
   - component: {fileID: 1655135897}
   m_Layer: 0
   m_Name: top
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1595,7 +1602,7 @@ GameObject:
   - component: {fileID: 1835827021}
   m_Layer: 0
   m_Name: right
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

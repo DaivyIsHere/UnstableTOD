@@ -37,6 +37,7 @@ public class InsecurityManager : MonoBehaviour
         GameObject tile = Instantiate(AllTiles[tChoice], SpawnPosition.position, Quaternion.identity, TileContainer.transform);
         tile.transform.eulerAngles = new Vector3(0, 0, AllAngles[angleChoice]);
         tile.GetComponent<Tile>().cardType = cardType;
+        tile.GetComponent<Tile>().IsControlling = true;
 
         TilesInInsecurity.Add(tile.GetComponent<Tile>());
     }

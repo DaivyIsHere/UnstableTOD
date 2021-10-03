@@ -11,6 +11,6 @@ public class Card_IceBucket : Card
 
     public override void ActivateDare()
     {
-        
+        RealityManager.instance.StartCoroutine(RealityManager.instance.Card_IceBucket());
     }
 }

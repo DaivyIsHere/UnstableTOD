@@ -24,5 +24,11 @@ public class RealityManager : MonoBehaviour
         
     }
 
+    public IEnumerator Card_IceBucket()
+    {
+        
+        yield return 0;
+    }
+
     
 }
