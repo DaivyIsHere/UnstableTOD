@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7344493996187100228}
   - component: {fileID: 3496428729280398586}
   - component: {fileID: 5516110597623343107}
+  - component: {fileID: 6385408557141793337}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -95,6 +96,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6385408557141793337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776163898396177906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775993dc88f8fe942a25b980ed0c1f22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tile: {fileID: 2432554831707747237}
+  _collider: {fileID: 5516110597623343107}
+  _slippery: {fileID: 13400000, guid: c9fd1d1736865b54dbe63d61589a4576, type: 2}
 --- !u!1 &2218570562711061365
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +175,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e89186447ec2a40b72c4f2121af80d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _colliders:
+  - {fileID: 6080937749028029662}
+  - {fileID: 6025734143303862076}
+  - {fileID: 6385408557141793337}
+  - {fileID: 8374067160183613483}
+  _dropSpeed: 0.5
+  _moveSpeed: 0.5
+  _boundary: 3
+  TileRB: {fileID: 6585422547927722838}
   tileType: 4
   cardType: 0
   IsControlling: 0
@@ -174,6 +199,7 @@ GameObject:
   - component: {fileID: 7962746751549547433}
   - component: {fileID: 5510611680698435775}
   - component: {fileID: 2798534585436426742}
+  - component: {fileID: 6025734143303862076}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -257,6 +283,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6025734143303862076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3742294777829858946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775993dc88f8fe942a25b980ed0c1f22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tile: {fileID: 2432554831707747237}
+  _collider: {fileID: 2798534585436426742}
+  _slippery: {fileID: 13400000, guid: c9fd1d1736865b54dbe63d61589a4576, type: 2}
 --- !u!1 &4517634289793745925
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,6 +310,7 @@ GameObject:
   - component: {fileID: 5374670296656342685}
   - component: {fileID: 4317581060800727427}
   - component: {fileID: 6884255321356528985}
+  - component: {fileID: 8374067160183613483}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -352,6 +394,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8374067160183613483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4517634289793745925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775993dc88f8fe942a25b980ed0c1f22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tile: {fileID: 2432554831707747237}
+  _collider: {fileID: 6884255321356528985}
+  _slippery: {fileID: 13400000, guid: c9fd1d1736865b54dbe63d61589a4576, type: 2}
 --- !u!1 &6232211039648033341
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +421,7 @@ GameObject:
   - component: {fileID: 6595336369869284605}
   - component: {fileID: 2495686796800152278}
   - component: {fileID: 7597838525607298099}
+  - component: {fileID: 6080937749028029662}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -447,3 +505,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6080937749028029662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6232211039648033341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775993dc88f8fe942a25b980ed0c1f22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tile: {fileID: 2432554831707747237}
+  _collider: {fileID: 7597838525607298099}
+  _slippery: {fileID: 13400000, guid: c9fd1d1736865b54dbe63d61589a4576, type: 2}
