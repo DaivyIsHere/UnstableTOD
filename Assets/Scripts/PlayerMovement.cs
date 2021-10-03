@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
+
     [SerializeField] private float spd;
     private Rigidbody rb;
 
@@ -12,20 +14,22 @@ public class PlayerMovement : MonoBehaviour
     public float _DamageCD = 0;
 
 
-    void Awake() 
+    void Awake()
     {
+        if (instance == null)
+            instance = this;
         rb = GetComponent<Rigidbody>();
     }
 
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        if(!CanTakeDamage())
+        if (!CanTakeDamage())
         {
             _DamageCD -= Time.deltaTime;
         }
@@ -33,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(slippery)
+        if (slippery)
         {
             SlipperyMovement();
         }
@@ -43,12 +47,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other) 
+    void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "bullet")
+        if (other.gameObject.tag == "bullet")
         {
-            if(CanTakeDamage())
-            TakeDamage();
+            if (CanTakeDamage())
+                TakeDamage();
         }
     }
 
@@ -68,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
 
-        rb.velocity = new Vector3(x* spd, rb.velocity.y, z*spd);
+        rb.velocity = new Vector3(x * spd, rb.velocity.y, z * spd);
     }
 
     void SlipperyMovement()
@@ -77,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         //print(rb.velocity.magnitude);
-        if(rb.velocity.magnitude < spd*0.8f)
-            rb.AddForce(new Vector3(x* spd, 0, z*spd));
+        if (rb.velocity.magnitude < spd * 0.8f)
+            rb.AddForce(new Vector3(x * spd, 0, z * spd));
     }
 }

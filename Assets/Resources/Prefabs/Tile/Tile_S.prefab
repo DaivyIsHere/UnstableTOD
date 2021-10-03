@@ -138,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 2218570562711061365}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 9.47, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
   m_Children:
   - {fileID: 999588789206352525}
   - {fileID: 8827824832994805464}
@@ -180,7 +180,7 @@ MonoBehaviour:
   - {fileID: 6025734143303862076}
   - {fileID: 6385408557141793337}
   - {fileID: 8374067160183613483}
-  _dropSpeed: 1
+  _dropSpeed: 3
   _moveSpeed: 0.25
   _boundary: 2
   TileRB: {fileID: 6585422547927722838}

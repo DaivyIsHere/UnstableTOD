@@ -150,6 +150,7 @@ public class InsecurityManager : MonoBehaviour
     {
         if(controllingTile && !controllingTile.GetComponent<Tile>().IsControlling)
         {
+            TilesInInsecurity.Add(controllingTile.GetComponent<Tile>());
             controllingTile = null;
         }
 
@@ -164,7 +165,7 @@ public class InsecurityManager : MonoBehaviour
             tile.GetComponent<Tile>().IsControlling = true;
             controllingTile = tile;
 
-            TilesInInsecurity.Add(tile.GetComponent<Tile>());
+            //TilesInInsecurity.Add(tile.GetComponent<Tile>());
         }
     }
 }
