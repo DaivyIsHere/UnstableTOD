@@ -18,9 +18,11 @@ public class Card_WhereIsMyUmbrella : Card
 
     public IEnumerator Slippery()
     {
+        GameManager.instance.SlipperyDisplay.enabled = true;
         PlayerMovement.instance.slippery = true;
         InsecurityManager.instance.MakeTileSlippery();
         yield return new WaitForSeconds(slipperyDuration);
+        GameManager.instance.SlipperyDisplay.enabled = false;
         PlayerMovement.instance.slippery = false;
         InsecurityManager.instance.MakeTileUnslippery();
     }
