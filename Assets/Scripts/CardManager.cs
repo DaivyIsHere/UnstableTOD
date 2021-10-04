@@ -13,6 +13,8 @@ public class CardManager : MonoBehaviour
     }
 
     public List<GameObject> AllCards = new List<GameObject>();
+    public List<string> AllDialog = new List<string>();
+    private float DialogCD = 0;//Count down
 
     public Transform DisplayCenter;
     public GameObject DisplayTextPref;
@@ -29,7 +31,29 @@ public class CardManager : MonoBehaviour
 
     void Update()
     {
+        ClearDialog();
+    }
 
+    public void DisplayRandomDialog()
+    {
+        int c = Random.Range(0, AllDialog.Count);
+        PlayerMovement.instance.dialogText.text = AllDialog[c];
+        PlayerMovement.instance.dialogText.text= PlayerMovement.instance.dialogText.text.Replace("\\n","\n");
+        PlayerMovement.instance.dialogText.gameObject.SetActive(true);
+        DialogCD = 2f;
+    }
+
+    public void ClearDialog()
+    {
+        if(DialogCD <= 0)
+        {
+            PlayerMovement.instance.dialogText.text = "";
+            PlayerMovement.instance.dialogText.gameObject.SetActive(false);
+        }
+        else
+        {
+            DialogCD -= Time.deltaTime;
+        }
     }
 
     public Card GetCardByType(CardType cardType)
@@ -105,6 +129,22 @@ public class CardManager : MonoBehaviour
             CardManager.instance.cardDisplayQueue.Enqueue(new CardDisplayData(c.cardUtilityType, c.description));
             c.ActivateDare();
         }
+    }
+
+    public void DrawBigTileCard(float scaleValue)
+    {
+        Card newCard = null;
+        bool pass = false;
+        while (!pass)
+        {
+            newCard = CardManager.instance.GetRandomCard().GetComponent<Card>();
+            if (newCard.cardUtilityType != CardUtilityType.Multiple)
+            {
+                pass = true;//do not add
+            }
+        }
+        CardManager.instance.cardDisplayQueue.Enqueue(new CardDisplayData(newCard.cardUtilityType, newCard.description));
+        InsecurityManager.instance.SpawnTile(new CardSpawnData(newCard.cardType, scaleValue));
     }
 
     public IEnumerator DisplayQueue()

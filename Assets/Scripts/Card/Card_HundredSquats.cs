@@ -6,7 +6,7 @@ public class Card_HundredSquats : Card
 {
     public override void ActivateTruth()
     {
-        InsecurityManager.instance.SpawnTile(cardType);
+        InsecurityManager.instance.SpawnTile(new CardSpawnData(cardType));
     }
 
     public override void ActivateDare()
