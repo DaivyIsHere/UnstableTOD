@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
             instance = this;
     }
 
+    public TextMesh drawCountDisplay;
     public Text sanityDisplay;
     public Text SlipperyDisplay;
     public int startSanity = 3;
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     void Update() 
     {    
+        drawCountDisplay.text = drawCount.ToString();
         PlayerSanityDisplay();    
         ChangeTileSpeed();
     }
