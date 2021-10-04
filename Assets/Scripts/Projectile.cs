@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         StartCoroutine(SelfDestroy());
+        transform.GetChild(0).transform.rotation = Quaternion.Euler(60,0,-90);
     }
 
     void Update()
