@@ -212,3 +212,4 @@ MonoBehaviour:
   description: Get over it, bro.
   possibilityMod: 0.3
   minDrawCount: 10
+  _particle: {fileID: 2676247093116049655, guid: d431923c9a46b554a999ead0d4d75e1e, type: 3}
