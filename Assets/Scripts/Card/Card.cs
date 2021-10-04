@@ -11,6 +11,7 @@ public class Card : MonoBehaviour
     public CardUtilityType cardUtilityType;
     public TileType tileType;
     public Sprite sprite;
+    public string description = "??";
 
     [Range(0,1)]
     public float possibilityMod = 1;

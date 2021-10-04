@@ -20,6 +20,11 @@ public class Tile : MonoBehaviour
     private bool _crossLeft;
     private bool _crossRight;
 
+    void Start() 
+    {
+        _dropSpeed = GameManager.instance.tileDropSpeed;
+    }
+
     void Update()
     {
         if (IsControlling)
