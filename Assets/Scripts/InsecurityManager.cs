@@ -34,11 +34,13 @@ public class InsecurityManager : MonoBehaviour
     public GameObject controllingTile;
     public float spawnCD = 2f;
 
+    [SerializeField] private GameObject _particle;
+
     void Update() 
     {
         SpawnTileFromList();
-        if(Input.GetKeyDown(KeyCode.K))
-            DestroyAllTiles();
+        //if(Input.GetKeyDown(KeyCode.K))
+            //DestroyAllTiles();
     }
 
     public void SpawnTile(CardSpawnData cardData)
@@ -100,6 +102,7 @@ public class InsecurityManager : MonoBehaviour
     {
         foreach (var t in TilesInInsecurity)
         {
+            Instantiate(_particle, t.gameObject.transform.position, Quaternion.identity);
             Destroy(t.gameObject);
         }
         TilesInInsecurity.Clear();
