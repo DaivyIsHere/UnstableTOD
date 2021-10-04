@@ -36,7 +36,9 @@ public class InsecurityManager : MonoBehaviour
 
     void Update() 
     {
-        SpawnTileFromList();    
+        SpawnTileFromList();
+        if(Input.GetKeyDown(KeyCode.K))
+            DestroyAllTiles();
     }
 
     public void SpawnTile(CardSpawnData cardData)
@@ -92,6 +94,15 @@ public class InsecurityManager : MonoBehaviour
                     tileCollider.BecomeSlippery();
             }
         }
+    }
+
+    public void DestroyAllTiles()
+    {
+        foreach (var t in TilesInInsecurity)
+        {
+            Destroy(t.gameObject);
+        }
+        TilesInInsecurity.Clear();
     }
 
     public void MakeTileUnslippery()

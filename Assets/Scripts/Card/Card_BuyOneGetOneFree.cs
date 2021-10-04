@@ -23,6 +23,6 @@ public class Card_BuyOneGetOneFree : Card
     public IEnumerator delayTile()
     {
         yield return new WaitForSeconds(1.5f);
-        CardManager.instance.DrawBigTileCard(1.5f);
+        CardManager.instance.DrawBigTileCard(1.25f);
     }
 }
