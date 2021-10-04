@@ -211,5 +211,5 @@ MonoBehaviour:
   sprite: {fileID: 0}
   description: Where's my umbrella?
   possibilityMod: 0.5
-  minDrawCount: 0
+  minDrawCount: 10
   slipperyDuration: 5

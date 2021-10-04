@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -68,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _DamageCD = maxDamageCD;
         GameManager.instance.PlayerTakeDamage();
+        CameraShaker.Instance.ShakeOnce(4f, 30f, 0f, 1f);
     }
 
     void StandardMovement()
