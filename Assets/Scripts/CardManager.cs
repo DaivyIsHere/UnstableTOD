@@ -14,9 +14,17 @@ public class CardManager : MonoBehaviour
 
     public List<GameObject> AllCards = new List<GameObject>();
 
+    public Transform DisplayCenter;
+    public GameObject DisplayTextPref;
+    public Queue<CardDisplayData> cardDisplayQueue = new Queue<CardDisplayData>();
+    public Color32 whiteText;
+    public Color32 blueText;
+    public Color32 redText;
+    public Color32 yellowText;
+
     void Start()
     {
-
+        StartCoroutine(DisplayQueue());
     }
 
     void Update()
@@ -94,7 +102,64 @@ public class CardManager : MonoBehaviour
         foreach (var c in cards)
         {
             print("multiple dare " + c.name);
+            CardManager.instance.cardDisplayQueue.Enqueue(new CardDisplayData(c.cardUtilityType, c.description));
             c.ActivateDare();
         }
+    }
+
+    public IEnumerator DisplayQueue()
+    {
+        while (true)
+        {
+            if (cardDisplayQueue.Count > 0)
+            {
+                CardDisplayData data = cardDisplayQueue.Dequeue();
+                GameObject displayText = Instantiate(DisplayTextPref, DisplayCenter, false);
+                displayText.transform.eulerAngles = new Vector3(65, 0, 0);
+                displayText.GetComponent<TextMesh>().text = data.description;
+                if(data.cardUtilityType == CardUtilityType.Bullet || data.cardUtilityType == CardUtilityType.Trap )
+                {
+                    displayText.GetComponent<TextMesh>().color = whiteText;
+                }
+                else if(data.cardUtilityType == CardUtilityType.Multiple)
+                {
+                    displayText.GetComponent<TextMesh>().color = yellowText;
+                }
+                else if(data.cardUtilityType == CardUtilityType.Utility)
+                {
+                    displayText.GetComponent<TextMesh>().color = redText;
+                }
+                else if(data.cardUtilityType == CardUtilityType.Weather)
+                {
+                    displayText.GetComponent<TextMesh>().color = blueText;
+                }
+
+
+                if (cardDisplayQueue.Count == 0)
+                {
+                    yield return new WaitForSeconds(1f);
+                }
+                else
+                {
+                    yield return new WaitForSeconds(0.2f);
+                }
+                displayText.GetComponent<Animation>().Play("CardDisplayOut");
+                yield return new WaitForSeconds(0.2f);
+                Destroy(displayText);
+            }
+            yield return 0;
+        }
+    }
+}
+
+public class CardDisplayData
+{
+    public CardUtilityType cardUtilityType;
+    public string description;
+
+    public CardDisplayData(CardUtilityType type, string description)
+    {
+        cardUtilityType = type;
+        this.description = description;
     }
 }

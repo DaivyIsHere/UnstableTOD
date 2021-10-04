@@ -6,11 +6,17 @@ public class Card_FourTimeHappiness : Card
 {
     public override void ActivateTruth()
     {
-        CardManager.instance.DrawMultipleCards(4);
+        CardManager.instance.StartCoroutine(delayDraw());
     }
 
     public override void ActivateDare()
     {
+        CardManager.instance.StartCoroutine(delayDraw());
+    }
+
+    public IEnumerator delayDraw()
+    {
+        yield return new WaitForSeconds(1.5f);
         CardManager.instance.DrawMultipleCards(4);
     }
 }
