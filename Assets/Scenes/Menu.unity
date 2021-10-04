@@ -1957,8 +1957,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Click on the card pile and drag the card to the left/right to play Truth/Dare
-    version of the card.
+  m_Text: 'Click on the card pile and drag the card to the left/right to play the
+    Truth/Dare version of the card.
 
 
     Be careful of some cards with special effects!
@@ -1969,7 +1969,7 @@ MonoBehaviour:
 
 
     When
-    the tiles reach a certain height, you will overcome your insecurity and detroy
+    the tiles reach a certain height, you will overcome your insecurity and destroy
     all the tiles inside.'
 --- !u!222 &1129199394
 CanvasRenderer:
