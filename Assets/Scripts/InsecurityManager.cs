@@ -144,25 +144,40 @@ public class InsecurityManager : MonoBehaviour
         _ground.transform.localPosition = new Vector3(0, originalY, 0);
     }
 
+    public GameObject GetTilePrefabByType(TileType type)
+    {
+        foreach (var t in AllTiles)
+        {
+            if(t.GetComponent<Tile>().tileType == type)
+            {
+                return t;
+            }
+        }
+
+        return null;
+    }
+
     public void SpawnTileFromList()
     {
         if(controllingTile && !controllingTile.GetComponent<Tile>().IsControlling)
         {
+            TilesInInsecurity.Add(controllingTile.GetComponent<Tile>());
             controllingTile = null;
         }
 
         if (controllingTile == null && TileSpawnQueue.Count > 0)
         {
-            CardType type = TileSpawnQueue.Dequeue();
-            int tChoice = Random.Range(0, AllTiles.Count);
+            CardType cardType = TileSpawnQueue.Dequeue();
             int angleChoice = Random.Range(0, AllAngles.Count);
-            GameObject tile = Instantiate(AllTiles[tChoice], SpawnPosition.position, Quaternion.identity, TileContainer.transform);
+            TileType tileType = CardManager.instance.GetTileTypeByCardType(cardType);
+            GameObject tilePref = GetTilePrefabByType(tileType);
+            GameObject tile = Instantiate(tilePref, SpawnPosition.position, Quaternion.identity, TileContainer.transform);
             tile.transform.eulerAngles = new Vector3(0, 0, AllAngles[angleChoice]);
-            tile.GetComponent<Tile>().cardType = type;
+            tile.GetComponent<Tile>().cardType = cardType;
             tile.GetComponent<Tile>().IsControlling = true;
             controllingTile = tile;
 
-            TilesInInsecurity.Add(tile.GetComponent<Tile>());
+            //TilesInInsecurity.Add(tile.GetComponent<Tile>());
         }
     }
 }

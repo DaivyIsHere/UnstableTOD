@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _image;
 
@@ -17,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
+        if (instance == null)
+            instance = this;
         rb = GetComponent<Rigidbody>();
     }
 

@@ -17,9 +17,12 @@ public class GameManager : MonoBehaviour
     public int maxSanity = 3;
     public int playerSanity = 3;
 
+    public int drawCount = 0;
+
     void Start() 
     {
         playerSanity = maxSanity;
+        drawCount = 0;
     }
 
     void Update() 

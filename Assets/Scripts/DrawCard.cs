@@ -112,12 +112,14 @@ public class DrawCard : MonoBehaviour
     {
         print("Truth : "+cardHolding.GetComponent<Card>().cardType);
         cardHolding.GetComponent<Card>().ActivateTruth();
+        GameManager.instance.drawCount += 1;
     }
 
     public void ApplyDareCard()
     {
         print("Dare : "+cardHolding.GetComponent<Card>().cardType);
         cardHolding.GetComponent<Card>().ActivateDare();
+        GameManager.instance.drawCount += 1;
     }
 
     public void DestroyCard()
