@@ -6,7 +6,7 @@ public class Card_UglyBallet : Card
 {
     public override void ActivateTruth()
     {
-        InsecurityManager.instance.SpawnTile(cardType);
+        InsecurityManager.instance.SpawnTile(new CardSpawnData(cardType));
     }
 
     public override void ActivateDare()

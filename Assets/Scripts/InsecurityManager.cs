@@ -30,7 +30,7 @@ public class InsecurityManager : MonoBehaviour
     public List<Tile> TilesInInsecurity = new List<Tile>();
     public List<float> AllAngles = new List<float>() { 0, 90, 180, 270 };
 
-    public Queue<CardType> TileSpawnQueue = new Queue<CardType>();
+    public Queue<CardSpawnData> TileSpawnQueue = new Queue<CardSpawnData>();
     public GameObject controllingTile;
     public float spawnCD = 2f;
 
@@ -39,9 +39,9 @@ public class InsecurityManager : MonoBehaviour
         SpawnTileFromList();    
     }
 
-    public void SpawnTile(CardType cardType)
+    public void SpawnTile(CardSpawnData cardData)
     {
-        TileSpawnQueue.Enqueue(cardType);
+        TileSpawnQueue.Enqueue(cardData);
         /*
         int tChoice = Random.Range(0, AllTiles.Count);
         int angleChoice = Random.Range(0, AllAngles.Count);
@@ -167,18 +167,37 @@ public class InsecurityManager : MonoBehaviour
 
         if (controllingTile == null && TileSpawnQueue.Count > 0)
         {
-            CardType cardType = TileSpawnQueue.Dequeue();
+            CardSpawnData cardData = TileSpawnQueue.Dequeue();
             int angleChoice = Random.Range(0, AllAngles.Count);
-            TileType tileType = CardManager.instance.GetTileTypeByCardType(cardType);
+            TileType tileType = CardManager.instance.GetTileTypeByCardType(cardData.cardType);
             GameObject tilePref = GetTilePrefabByType(tileType);
             GameObject tile = Instantiate(tilePref, SpawnPosition.position, Quaternion.identity, TileContainer.transform);
+            tile.transform.localScale = Vector3.one * cardData.scaleValue;
             tile.transform.eulerAngles = new Vector3(0, 0, AllAngles[angleChoice]);
-            tile.GetComponent<Tile>().cardType = cardType;
+            tile.GetComponent<Tile>().cardType = cardData.cardType;
             tile.GetComponent<Tile>().IsControlling = true;
             controllingTile = tile;
 
             //TilesInInsecurity.Add(tile.GetComponent<Tile>());
         }
+    }
+}
+
+public class CardSpawnData
+{
+    public CardType cardType;
+    public float scaleValue = 0.95f;
+
+    public CardSpawnData(CardType cardType)
+    {
+        this.cardType = cardType;
+        this.scaleValue = 0.95f;
+    }
+
+    public CardSpawnData(CardType cardType, float scaleValue)
+    {
+        this.cardType = cardType;
+        this.scaleValue = scaleValue;
     }
 }
 

@@ -52,7 +52,7 @@ public class DrawCard : MonoBehaviour
                 Vector3 targetPos = new Vector3(pos.x, CardHoldY, pos.z);
                 Quaternion targetAngles = Quaternion.Euler(-20, 0, 0);
                 
-                cardHolding.transform.position = Vector3.Lerp(cardHolding.transform.position, targetPos, 0.1f);
+                cardHolding.transform.position = Vector3.Lerp(cardHolding.transform.position, targetPos, 0.2f);
                 cardHolding.transform.rotation = Quaternion.Lerp(cardHolding.transform.rotation, targetAngles, 0.1f);
             }
 
@@ -103,7 +103,7 @@ public class DrawCard : MonoBehaviour
 
         if(!IsHoldingCard)
         {
-            newCard.transform.position = Vector3.Lerp(newCard.transform.position, SpawnPosition.position, 0.1f);
+            newCard.transform.position = Vector3.Lerp(newCard.transform.position, SpawnPosition.position, 0.2f);
             newCard.transform.rotation = Quaternion.Lerp(newCard.transform.rotation, Quaternion.Euler(0, 0, 0), 0.1f);
         }
     }

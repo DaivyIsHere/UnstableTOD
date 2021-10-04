@@ -14,7 +14,7 @@ public class CardManager : MonoBehaviour
 
     public List<GameObject> AllCards = new List<GameObject>();
     public List<string> AllDialog = new List<string>();
-    private float DialogCD;//Count down
+    private float DialogCD = 0;//Count down
 
     public Transform DisplayCenter;
     public GameObject DisplayTextPref;
@@ -129,6 +129,22 @@ public class CardManager : MonoBehaviour
             CardManager.instance.cardDisplayQueue.Enqueue(new CardDisplayData(c.cardUtilityType, c.description));
             c.ActivateDare();
         }
+    }
+
+    public void DrawBigTileCard(float scaleValue)
+    {
+        Card newCard = null;
+        bool pass = false;
+        while (!pass)
+        {
+            newCard = CardManager.instance.GetRandomCard().GetComponent<Card>();
+            if (newCard.cardUtilityType != CardUtilityType.Multiple)
+            {
+                pass = true;//do not add
+            }
+        }
+        CardManager.instance.cardDisplayQueue.Enqueue(new CardDisplayData(newCard.cardUtilityType, newCard.description));
+        InsecurityManager.instance.SpawnTile(new CardSpawnData(newCard.cardType, scaleValue));
     }
 
     public IEnumerator DisplayQueue()

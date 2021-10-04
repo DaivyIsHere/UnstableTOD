@@ -6,7 +6,7 @@ public class Card_BuyOneGetOneFree : Card
 {
     public override void ActivateTruth()
     {
-        CardManager.instance.StartCoroutine(delayDraw());
+        CardManager.instance.StartCoroutine(delayTile());
     }
 
     public override void ActivateDare()
@@ -18,5 +18,11 @@ public class Card_BuyOneGetOneFree : Card
     {
         yield return new WaitForSeconds(1.5f);
         CardManager.instance.DrawMultipleCards(2);
+    }
+
+    public IEnumerator delayTile()
+    {
+        yield return new WaitForSeconds(1.5f);
+        CardManager.instance.DrawBigTileCard(1.5f);
     }
 }
