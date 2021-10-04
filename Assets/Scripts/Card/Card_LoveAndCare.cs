@@ -10,4 +10,11 @@ public class Card_LoveAndCare : Card
         //print("Truth!");
         //InsecurityManager.instance.SpawnTile(cardType);
     }
+
+    public override void ActivateDare()
+    {
+        GameManager.instance.PlayerAddSanity();
+        //print("Truth!");
+        //InsecurityManager.instance.SpawnTile(cardType);
+    }
 }
