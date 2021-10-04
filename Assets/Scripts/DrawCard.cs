@@ -80,6 +80,7 @@ public class DrawCard : MonoBehaviour
             if(cardHolding.transform.position.x < truthX)
             {
                 //truth
+                CardManager.instance.DisplayRandomDialog();
                 ApplyTruthCard();
                 DestroyCard();
                 RespawnCard();

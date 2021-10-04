@@ -13,6 +13,8 @@ public class CardManager : MonoBehaviour
     }
 
     public List<GameObject> AllCards = new List<GameObject>();
+    public List<string> AllDialog = new List<string>();
+    private float DialogCD;//Count down
 
     public Transform DisplayCenter;
     public GameObject DisplayTextPref;
@@ -29,7 +31,29 @@ public class CardManager : MonoBehaviour
 
     void Update()
     {
+        ClearDialog();
+    }
 
+    public void DisplayRandomDialog()
+    {
+        int c = Random.Range(0, AllDialog.Count);
+        PlayerMovement.instance.dialogText.text = AllDialog[c];
+        PlayerMovement.instance.dialogText.text= PlayerMovement.instance.dialogText.text.Replace("\\n","\n");
+        PlayerMovement.instance.dialogText.gameObject.SetActive(true);
+        DialogCD = 2f;
+    }
+
+    public void ClearDialog()
+    {
+        if(DialogCD <= 0)
+        {
+            PlayerMovement.instance.dialogText.text = "";
+            PlayerMovement.instance.dialogText.gameObject.SetActive(false);
+        }
+        else
+        {
+            DialogCD -= Time.deltaTime;
+        }
     }
 
     public Card GetCardByType(CardType cardType)

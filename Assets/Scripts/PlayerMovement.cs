@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float spd;
     private Rigidbody rb;
 
+    public TextMesh dialogText;
     public bool slippery = false;
     public float maxDamageCD = 1.5f;
     public float _DamageCD = 0;

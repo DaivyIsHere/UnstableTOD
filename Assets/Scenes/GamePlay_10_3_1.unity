@@ -366,6 +366,7 @@ MonoBehaviour:
   _animator: {fileID: 2103457661}
   _image: {fileID: 2103457658}
   spd: 10
+  dialogText: {fileID: 912772743}
   slippery: 0
   maxDamageCD: 1.5
   _DamageCD: 0
@@ -398,6 +399,7 @@ Transform:
   m_Children:
   - {fileID: 2103457659}
   - {fileID: 474728370}
+  - {fileID: 912772742}
   m_Father: {fileID: 1185535256}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1397,6 +1399,101 @@ MonoBehaviour:
   playerSanity: 3
   drawCount: 0
   tileDropSpeed: 2
+--- !u!1 &912772741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 912772742}
+  - component: {fileID: 912772744}
+  - component: {fileID: 912772743}
+  m_Layer: 0
+  m_Name: DialogText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &912772742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912772741}
+  m_LocalRotation: {x: 0.5735764, y: 0, z: 0, w: 0.8191521}
+  m_LocalPosition: {x: 0, y: 3, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 76058385}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
+--- !u!102 &912772743
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912772741}
+  m_Text: I'm broke.
+  m_OffsetZ: 0
+  m_CharacterSize: 0.3
+  m_LineSpacing: 1
+  m_Anchor: 7
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 20
+  m_FontStyle: 1
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: e14fd1f3de9255b439b2804e4b41a620, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &912772744
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912772741}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: e14fd1f3de9255b439b2804e4b41a620, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,6 +1697,18 @@ MonoBehaviour:
   - {fileID: 3322445873733985606, guid: 6a9b9d74504d30b44a1a82450b707242, type: 3}
   - {fileID: 7821947318029887738, guid: b38466e1fa31db149a5ae1b8a9512e9f, type: 3}
   - {fileID: 3316755229380942630, guid: 9aedd36709ec62840bcdab9dbeddc9a4, type: 3}
+  AllDialog:
+  - I'm broke.
+  - I'm short.
+  - I'm bald.
+  - I have diabetes.
+  - My parents\ndivorced yesterday.
+  - I can't\nride a bike.
+  - I have ADHD.
+  - I don't like being\nin front of people
+  - I pee in the shower
+  - I'm gay.
+  - I'm a furry
   DisplayCenter: {fileID: 1267591950}
   DisplayTextPref: {fileID: 8708390032767150790, guid: 8687d658964066e44828a66b9c1d4931, type: 3}
   whiteText:
