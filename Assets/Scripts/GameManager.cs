@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         if(playerSanity == 0)
         {
             sanityDisplay.text = "Sanity = X";
+            GameOver();
         }
         else if(playerSanity == 1)
         {
@@ -99,4 +101,10 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    private void GameOver()
+    {
+        GameRecord.Draw = drawCount;
+        GameRecord.Time = Time.timeSinceLevelLoad;
+        SceneManager.LoadScene(2);
+    }
 }
