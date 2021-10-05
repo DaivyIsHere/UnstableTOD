@@ -177,7 +177,7 @@ public class CardManager : MonoBehaviour
 
                 if (cardDisplayQueue.Count == 0)
                 {
-                    yield return new WaitForSeconds(1f);
+                    yield return new WaitForSeconds(1.5f);
                 }
                 else
                 {

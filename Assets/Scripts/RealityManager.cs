@@ -38,7 +38,7 @@ public class RealityManager : MonoBehaviour
 
     public GameObject NewTrap(Vector3 offset, float delay, float lifeTime)
     {
-        GameObject p = Instantiate(trapPref, new Vector3(0,0.1f,0)+ offset, Quaternion.identity, projectileContainer.transform);
+        GameObject p = Instantiate(trapPref, new Vector3(0,0.35f,0)+ offset, Quaternion.identity, projectileContainer.transform);
         p.GetComponent<Trap>().delay = delay;
         p.GetComponent<Trap>().lifeTime = lifeTime;
         return p;

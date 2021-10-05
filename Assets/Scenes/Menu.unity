@@ -1002,7 +1002,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e14fd1f3de9255b439b2804e4b41a620, type: 3}
-    m_FontSize: 24
+    m_FontSize: 23
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
@@ -1013,17 +1013,17 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'The Buttom of the right screen will display what card you drawn.
+  m_Text: 'Playing a Truth card often spawns a pressure tile represents the original
+    card. The tile will activate the dare effect of the original card when it fell.
 
 
-    Mostly,
-    playing a Dare Card will spawn your nightmares to the reality(Right Screen).
-    Be sure to dodge them!
+    Stack
+    the pressure tiles carefully inside your insecurity(Left Screen).
 
 
-    Playing a Truth card often spawns a pressure tile
-    represents the original card. The tile will activate the dare effect of the original
-    card when it fell.'
+    When
+    the tiles reach a certain height, you will overcome your insecurity and destroy
+    all the tiles inside.'
 --- !u!222 &413022657
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1946,7 +1946,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e14fd1f3de9255b439b2804e4b41a620, type: 3}
-    m_FontSize: 24
+    m_FontSize: 23
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
@@ -1958,19 +1958,16 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Click on the card pile and drag the card to the left/right to play the
-    Truth/Dare version of the card.
+    Truth/Dare version of the card. The card you drawn will be displayed at the right
+    bottom.
 
 
-    Be careful of some cards with special effects!
+    Mostly, playing a Dare Card will spawn your nightmares to the reality(Right
+    Screen) in a certain pattern. Be sure to dodge them!
 
 
-    Stack
-    the pressure tiles carefully inside your insecurity(Left Screen).
-
-
-    When
-    the tiles reach a certain height, you will overcome your insecurity and destroy
-    all the tiles inside.'
+    Memorizing the nightmare
+    pattern of each card can help you a lot in surviving. '
 --- !u!222 &1129199394
 CanvasRenderer:
   m_ObjectHideFlags: 0

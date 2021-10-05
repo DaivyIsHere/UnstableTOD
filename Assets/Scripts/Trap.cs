@@ -8,7 +8,7 @@ public class Trap : MonoBehaviour
     public float lifeTime = 3f;
     
     private Vector3 startPos;
-    private float targetY = 0;
+    private float targetY = 0.35f;
 
     void Start()
     {

@@ -36,10 +36,17 @@ public class GameManager : MonoBehaviour
         drawCountDisplay.text = drawCount.ToString();
         PlayerSanityDisplay();    
         ChangeTileSpeed();
+        
+        if(playerSanity == 0)
+        {
+            GameOver();
+        }
     }
 
     public void PlayerSanityDisplay()
     {
+        sanityDisplay.text = "Sanity = "+playerSanity;
+        /*
         if(playerSanity == 0)
         {
             sanityDisplay.text = "Sanity = X";
@@ -65,6 +72,7 @@ public class GameManager : MonoBehaviour
         {
             sanityDisplay.text = "Sanity = OOOOO";
         }
+        */
     }
 
     public void ChangeTileSpeed()
